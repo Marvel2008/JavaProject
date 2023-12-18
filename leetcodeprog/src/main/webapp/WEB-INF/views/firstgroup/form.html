@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.
+    css">
+    <link rel="stylesheet" href="/URLToReachResourcesFolder/static/style.css"/>
+    <title>Form</title>
+</head>
+<body>
+
+<div class="container" id="container">
+
+<!--        <nav class="navbar">-->
+<!--            <div class="topcontainer">-->
+<!--                <a href="#" class="navbar-brand">MyLeetCode</a>-->
+<!--            </div>-->
+<!--        </nav>-->
+
+
+
+    <div class="form-container sign-up">
+        <form th:method="POST" th:action="@{/information/create}" th:object="${person}">
+            <h1>Create Account</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-brands fa-github"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <span>or use your email for registartion</span>
+                <input type="text" th:field="*{name}" required placeholder="Name"/>
+                <input type="email"  th:field="*{email}" required placeholder="Email"/>
+                <input type="password" id="password" th:field="*{password}" required placeholder="Password"/>
+                <input type="checkbox" id="showPassword" onchange="togglePassword()"/>
+<!--                <div th:if="${param.error}" class="alert">-->
+<!--                    <p style="color: #ff0000">Invalid username or password.</p>-->
+<!--                </div>-->
+                <button type="submit">Sign up</button>
+            </div>
+        </form>
+    </div>
+    <div class="form-container sign-in">
+        <form th:method="GET" th:action="@{/information/sighin}" th:object="${person}">
+            <h1>Sign In</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-brands fa-github"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <p>or use your email password</p>
+                <input type="email"  th:field="*{email}"   placeholder="Email">
+                <input type="password"  th:field="*{password}" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <br>
+                <button>Sign in</button>
+            </div>
+        </form>
+    </div>
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>Welcome Back!</h1>
+                <p>Enter your personal details to use all of site features</p>
+                <button  class="hidden" id="login">Sign in</button>
+            </div>
+            <div class="toggle-panel toggle-right" >
+                <h1>Hello, Friend!</h1>
+                <p>Register with your personal details to use all of site features</p>
+                <button class="register" id="register">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="topcontainer">
+            <p>Copyright © 2023 MyLeetCode. All rights reserved.</p>
+        </div>
+    </footer>
+</div>
+<script src="/URLToReachResourcesFolder/static/script.js"></script>
+</body>
+</html>
